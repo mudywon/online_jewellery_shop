@@ -1,0 +1,97 @@
+<?php
+ob_start();
+session_start();
+if(!isset($_SESSION['UserID']))
+{
+    header("Location:Login.php");
+}
+include 'AdminHeader.php'; ?>
+   <?php
+ if(isset($_GET['msg'])&&!empty($_GET['msg']))
+        {
+        ?>
+        <script>
+            $.bootstrapGrowl('Product deleted successfully',{
+            type: 'success',
+            delay: 2000,
+        });
+        </script>
+        <?php } ?>
+        
+        <?php
+ if(isset($_GET['error'])&&!empty($_GET['error']))
+        {
+        ?>
+        <script>
+            $.bootstrapGrowl('Problem for deleting Product.',{
+            type: 'danger',
+            delay: 2000,
+        });
+        </script>
+        <?php } ?>
+        <div class="content dashboard_v1">
+              <div class="content">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pvr-wrapper">
+                        <div class="pvr-box">
+                            <h5 class="pvr-header">
+                              Delete Product
+                               
+                            </h5>
+                            <form method="get" action="Show_DeleteProduct.php">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail4">Product Name</label>
+                                        <input type="text" name="pname" class="form-control" id="exampleInputEmail4"
+                                               placeholder="Enter Product Name">
+                                    </div>
+                                    <input type="submit" value="Submit" class="btn btn-purple m-r-5">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </div>
+            
+        </div>
+        <!--Begin Footer-->
+        <footer class="footer">
+            <div class="container">
+                <nav>
+                    <ul class="footer-menu d-none d-sm-block">
+                        <li>
+                            <a href="javascript:void(0)">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                T&C
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                Privacy policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                Website
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-center">
+                            © <span id="writeCopyrights"></span>
+                        <a href="http://www.pvrtechstudio.com/" target="_blank">Dimonds</a>, All rights recived
+                    </p>
+                </nav>
+            </div>
+        </footer>
+        <!--End Footer-->
+    </div>
+    <!--EndMain Panel-->
+</div>
+    </div>
+<!--End wrapper-->
